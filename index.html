@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System - Dashboard</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Library Management System</h1>
+    <div class="header-right">
+      <span id="welcomeText">Welcome Librarian</span>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="issue">Issue Book</button>
+    <button class="tab-btn" data-tab="issued">Issued Books</button>
+    <button class="tab-btn" data-tab="history">Return History</button>
+  </nav>
+
+  <main class="tab-content">
+    <!-- Issue Book Section -->
+    <section id="issue" class="tab-section active">
+      <h2>Issue a Book</h2>
+      <div class="form-grid">
+        <label for="genreSelect">Genre:</label>
+        <select id="genreSelect"></select>
+
+        <label for="bookSelect">Book:</label>
+        <select id="bookSelect"></select>
+
+        <label for="borrowerInput">Borrower Name:</label>
+        <input type="text" id="borrowerInput" placeholder="Enter borrower name" />
+
+        <label for="issueDate">Issue Date:</label>
+        <input type="date" id="issueDate" />
+
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" />
+
+        <button id="issueBtn" class="btn">Issue Book</button>
+      </div>
+    </section>
+
+    <!-- Issued Books Section -->
+    <section id="issued" class="tab-section">
+      <h2>Issued Books</h2>
+      <input type="text" id="issuedSearch" placeholder="Search by book or borrower..." class="search-bar" />
+      <table id="issuedTable">
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th>Borrower</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Return History Section -->
+    <section id="history" class="tab-section">
+      <h2>Return History</h2>
+      <input type="text" id="historySearch" placeholder="Search returned books..." class="search-bar" />
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th>Borrower</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="books.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

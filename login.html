@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System - Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body class="login-body">
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Library Management System</h2>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" />
+
+      <label>Enter CAPTCHA</label>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+        <span id="captchaText" style="background: #0a2a66; color: #fff; padding: 0.4rem 1rem; border-radius: 6px; font-weight: bold;"></span>
+        <button type="button" style="background: none; border: none; color: #0a2a66; font-weight: 600;" onclick="refreshCaptcha()">↻</button>
+      </div>
+
+      <input type="number" id="captchaInput" placeholder="Enter CAPTCHA number" />
+
+      <button class="btn" onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    // Refresh CAPTCHA manually
+    function refreshCaptcha() {
+      currentCaptcha = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("captchaText").textContent = currentCaptcha;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script defer src="book.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Library Management System</h1>
+    <div class="header-right">
+      <span id="librarianName">Welcome, Librarian</span>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <button class="tab-btn active" data-target="issueSection">Issue Book</button>
+    <button class="tab-btn" data-target="viewIssuedSection">View Issued</button>
+    <button class="tab-btn" data-target="returnedSection">Returned Books</button>
+  </nav>
+
+  <!-- TAB CONTENT -->
+  <div class="tab-content">
+
+    <!-- ISSUE BOOK TAB -->
+    <section id="issueSection" class="tab-section active">
+      <h2>Issue a Book</h2>
+      <div class="form-grid">
+        <label>Borrower Name:</label>
+        <input type="text" id="borrowerName" placeholder="Enter borrower name" />
+
+        <label>Genre:</label>
+        <select id="genre" onchange="populateBooks()">
+          <option value="">Select Genre</option>
+        </select>
+
+        <label>Book:</label>
+        <select id="book">
+          <option value="">Select Book</option>
+        </select>
+
+        <label>Issue Date:</label>
+        <input type="date" id="issueDate" />
+
+        <label>Due Date:</label>
+        <input type="date" id="dueDate" />
+
+        <button class="btn" onclick="issueBook()">Issue Book</button>
+      </div>
+    </section>
+
+    <!-- VIEW ISSUED TAB -->
+    <section id="viewIssuedSection" class="tab-section">
+      <h2>Issued Books</h2>
+      <input type="text" id="searchBar" class="search-bar" placeholder="Search issued books..." onkeyup="searchBooks()" />
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Borrower</th>
+            <th>Genre</th>
+            <th>Book</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Issued By</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="issuedBooksTable"></tbody>
+      </table>
+    </section>
+
+    <!-- RETURNED BOOKS TAB -->
+    <section id="returnedSection" class="tab-section">
+      <h2>Returned Books History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Borrower</th>
+            <th>Genre</th>
+            <th>Book</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Returned Date</th>
+            <th>Issued By</th>
+          </tr>
+        </thead>
+        <tbody id="returnedBooksTable"></tbody>
+      </table>
+    </section>
+
+  </div>
+</body>
+</html>
